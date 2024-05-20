@@ -1,0 +1,21 @@
+:root {
+  --bot-color: #f1f0f0;
+  --user-color: #dcf8c6;
+  --header-bg: #007bff;
+  --header-color: #ffffff;
+  --input-bg: #fafafa;
+  --input-border: #ddd;
+  --button-bg: #007bff;
+  --button-color: #ffffff;
+  --button-hover-bg: #0056b3;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  background-color: #f0f0f0;
+}
