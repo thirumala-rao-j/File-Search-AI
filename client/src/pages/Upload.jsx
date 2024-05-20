@@ -8,6 +8,7 @@ const Upload = () => {
 
   const [fields, setFields] = useState([{ id: Math.random(), file: null }]);
   const [totalSize, setTotalSize] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const findTotalSize = () => {
     let totalSize = 0;
@@ -56,6 +57,7 @@ const Upload = () => {
 
   // submitting the data
   const HandleData = async () => {
+    setIsLoading(true);
     let totalSize = findTotalSize();
     if (totalSize === 0) {
       return alert("you should upload at least one file");
@@ -82,7 +84,7 @@ const Upload = () => {
       }
     );
     const vector_store = await response.json();
-
+    setIsLoading(false);
     navigate("/chat", { state: vector_store.data.id });
   };
 
@@ -133,7 +135,11 @@ const Upload = () => {
       </p>
 
       <div className={styles.buttonContainer}>
-        <button onClick={HandleData} className={styles.submitButton}>
+        <button
+          onClick={HandleData}
+          className={styles.submitButton}
+          disabled={isLoading}
+        >
           Chat
         </button>
       </div>
